@@ -92,7 +92,7 @@ public class ExtendedInstanceQuery
     String m_Query = "SELECT * from ?";
 
     /**
-     * Sets up the database drivers
+     * Sets up the database drivers using default Weka .prop file
      *
      * @throws Exception if an error occurs
      */
@@ -100,6 +100,14 @@ public class ExtendedInstanceQuery
         super();
     }
 
+    /**
+     * Construct the the instance by defining the property file and an optional Datasource
+     *
+     * @param propertyFile .prop file used by Weka
+     * @param dataSource datasource used to retreive connections, if is null a new connection is created using
+     *                   the .prop file
+     * Exception if an error occurs
+     */
     public ExtendedInstanceQuery(String propertyFile, DataSource dataSource) throws Exception {
         super(propertyFile, dataSource);
     }

@@ -15,9 +15,9 @@
  */
 
 /*
- *    DatabaseUtils.java
+ *    ExtendedDatabaseUtils.java
  *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
- *
+ *    Modified by marcioadr88 to support java.sql.Datasource
  */
 
 package py.fpuna.lib;
@@ -201,12 +201,27 @@ public class ExtendedDatabaseUtils implements Serializable, RevisionHandler {
      */
     private String propertyFile;
 
+    /**
+     * The datasource
+     */
     private DataSource dataSource;
 
+    /**
+     * Default constructor, uses by default the .prop file located at weka/experiment/DatabaseUtils.props
+     * Exception if an error occurs
+     */
     public ExtendedDatabaseUtils() throws Exception {
         this(DEFAULT_PROPERTY_FILE, null);
     }
 
+    /**
+     * Construct the DatabaseUtils by defining the property file and an optional Datasource
+     *
+     * @param propertyFile .prop file used by Weka
+     * @param dataSource datasource used to retreive connections, if is null a new connection is created using
+     *                   the .prop file
+     * Exception if an error occurs
+     */
     public ExtendedDatabaseUtils(String propertyFile, DataSource dataSource) throws Exception {
         this.propertyFile = propertyFile;
         this.dataSource = dataSource;
