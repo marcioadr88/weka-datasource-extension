@@ -21,8 +21,6 @@ public class WekaServiceImpl {
     public void weka() throws Exception {
         ExtendedInstanceQuery query = new ExtendedInstanceQuery("DatabaseUtils.props", dataSource);
 
-        query.setUsername("username");
-        query.setPassword("password");
         query.setQuery("SELECT * FROM TABLE LIMIT 20");
 
         Instances data = query.retrieveInstances();
